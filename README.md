@@ -15,9 +15,9 @@ Quit or uninstall Logi Options first, since it intercepts the buttons.
 make install
 ```
 
-This builds the tool, copies it to `~/bin/logiback`, and installs a LaunchAgent that starts it at login.
+This builds the tool, copies it to `/usr/local/bin/logiback` (using `sudo`), and installs a LaunchAgent that starts it at login.
 
-Then grant Accessibility permission to `~/bin/logiback` in System Settings › Privacy & Security › Accessibility, and restart it:
+Then grant Accessibility permission to `/usr/local/bin/logiback` in System Settings › Privacy & Security › Accessibility, and restart it:
 
 ```
 launchctl kickstart -k gui/$(id -u)/com.fernandotcl.logiback
@@ -32,6 +32,6 @@ make uninstall
 ## Troubleshooting
 
 - Check that it's running: `launchctl print gui/$(id -u)/com.fernandotcl.logiback`
-- Run `~/bin/logiback` from a terminal to see whether it reports a missing permission.
+- Run `/usr/local/bin/logiback` from a terminal to see whether it reports a missing permission.
 - After rebuilding, macOS may stop trusting the binary. Remove it from the Accessibility list and add it again.
 - The shortcuts are sent using the physical key positions of `[` and `]` on a US keyboard. On other keyboard layouts they may not trigger.
